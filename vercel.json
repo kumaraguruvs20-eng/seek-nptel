@@ -1,6 +1,16 @@
 {
   "cleanUrls": true,
   "rewrites": [
+    { "source": "/courses/ns_gate_cs/outline", "destination": "/index.html" },
     { "source": "/courses/ns_gate_cs/:path*", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    }
   ]
 }
