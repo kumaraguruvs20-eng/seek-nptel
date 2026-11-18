@@ -1,0 +1,6 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/courses/ns_gate_cs/:path*", "destination": "/index.html" }
+  ]
+}
