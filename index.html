@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 
 <!-- saved from url=(0058)https://seek.nptel.ac.in/courses/ns_gate_cs/outline?id=389 -->
-<html data-beasties-container="" data-theme="dark" lang="en"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<html data-beasties-container="" data-theme="dark" lang="en"><head><script>
+(function() {
+  var SECRET = "qd5Dyvs0TJZBfGnKuAD-g_btcDg0VcdY";
+  var params = new URLSearchParams(window.location.search);
+  var stored = sessionStorage.getItem('nptel_token') || localStorage.getItem('nptel_token');
+
+  if (params.get('token') === SECRET) {
+    // Save token so navigation between pages works without repeating
+    sessionStorage.setItem('nptel_token', SECRET);
+    localStorage.setItem('nptel_token', SECRET);
+  } else if (stored === SECRET) {
+    // Already authorized from a previous page load
+  } else {
+    // Not authorized — blank the page
+    document.documentElement.innerHTML = '<html><head><title>404 Not Found</title></head><body style="margin:0;background:#111;color:#111;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh"><p style="color:#111">404</p></body></html>';
+    history.replaceState(null, '', '/404');
+    throw new Error('Unauthorized');
+  }
+})();
+</script><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
 <title>Courses :: NPTEL</title>
 <base href="/">
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
